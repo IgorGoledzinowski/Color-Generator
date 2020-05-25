@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Color Palete Creator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/fontello.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="wraper">
+		<div class="overlay" >
+			<div class="window">
+				<h3>EXPORT ...</h3>
+				<ol>
+					<li><button>.SCSS</button></li>
+					<hr>
+					<li><button>.PDF</button></li>
+					<hr>
+					<li><button>SCRENSHOT</button></li>
+				</ol>
+			</div>
+		</div>
+		<div class="column" id="col-1">
+			<div class="menu">
+				<input type="text" value="color-name-1">
+				<hr>
+				<input type="text" id="color-code1">
+				<hr>
+				<button><i onclick="lock(this)" class="icon-lock-open-alt"></i></button>
+				<button onclick="swapColorNext(0)"><i class="icon-angle-circled-right"></i></button>
+			</div>
+		</div>
+		<div class="column" id="col-2">
+			<div class="menu">
+				<input type="text" value="color2">
+				<hr>
+				<input type="text" id="color-code2">
+				<hr>
+				<button onclick="swapColorPrev(1)"><i class="icon-angle-circled-left"></i></button>
+				<button><i onclick="lock(this)" class="icon-lock-open-alt"></i></button>
+				<button onclick="swapColorNext(1)"><i class="icon-angle-circled-right"></i></button>
+			</div>
+		</div>
+		<div class="column" id="col-3">
+			<div class="menu">
+				<input type="text" value="color3">
+				<hr>
+				<input type="text" id="color-code3">
+				<hr>
+				<button onclick="swapColorPrev(2)"><i class="icon-angle-circled-left"></i></button>
+				<button><i onclick="lock(this)" class="icon-lock-open-alt"></i></button>
+				<button onclick="swapColorNext(2)"><i class="icon-angle-circled-right"></i></button>
+			</div>
+		</div>
+		<div class="column hide" id="col-4">
+			<div class="menu">
+				<input type="text" value="color4">
+				<hr>
+				<input type="text" id="color-code4">
+				<hr>
+				<button onclick="swapColorPrev(3)"><i class="icon-angle-circled-left"></i></button>
+				<button><i onclick="lock(this)" class="icon-lock-open-alt"></i></button>
+				<button onclick="swapColorNext(3)"><i class="icon-angle-circled-right"></i></button>
+			</div>
+		</div>
+		<div class="column hide" id="col-5">
+			<div class="menu">
+				<input type="text" value="color5">
+				<hr>
+				<input type="text" id="color-code5">
+				<hr>
+				<button onclick="swapColorPrev(4)"><i class="icon-angle-circled-left"></i></button>
+				<button><i onclick="lock(this)" class="icon-lock-open-alt"></i></button>
+			</div>
+		</div>
+		<div class="navbar">
+			<!--<form>
+				<input type="radio" id="rgb" value="rgb">
+				<label for="rgb">RGB</label>
+				<input type="radio" id="hex" value="hex">
+				<label for="HEX">HEX</label>
+			</form>-->
+			<button class="save-btn btn" onclick="colGen()"><i class="icon-arrows-cw"></i> GENERATE</button>
+			<button class="save-btn btn" onclick="saveFile()"><i
+					class="icon-export"></i> EXPORT</button>
+			<button class="btn" onclick="removeColumn()"><i class="icon-minus"></i> REMOVE COLUMN</button>
+			<button class="add-color-btn btn" onclick="addNewColumn()"><i class="icon-plus-1"></i>ADD COLUMN</button>
+		</div>
+		<!--<div class="settings-menu"></div>-->
+	</div>
+	<script type="text/javascript" src="js/colors.js"></script>
+</body>
+
+</html>
