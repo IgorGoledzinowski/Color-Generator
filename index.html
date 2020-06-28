@@ -2,24 +2,27 @@
 <html>
 
 <head>
-	<title>Color Palete Creator</title>
+	<title>Color Palette Generator</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/fontello.css">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="fontawesome-free-5.13.1-web/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
 	<div class="wraper">
 		<div class="overlay" >
 			<div class="window">
-				<h3>EXPORT ...</h3>
+				<button class="close" onclick="windowController()"><i class="fas fa-times"></i></button>
+				<div class="w-title">
+				<div>EXPORT</div>
+				<p>Select extension of the file</p>
+				</div>
 				<ol>
-					<li><button>.SCSS</button></li>
-					<hr>
-					<li><button>.PDF</button></li>
-					<hr>
-					<li><button>SCRENSHOT</button></li>
+					<li><button onclick="exportFile(fileData(true),'Palette_Generator','text/css')">.CSS</button></li>
+					<li><button onclick="exportFile(fileData(),'Palette_Generator')">.TXT</button></li>
+					<li><button>CODE</button></li>
 				</ol>
 			</div>
 		</div>
@@ -84,7 +87,7 @@
 				<label for="HEX">HEX</label>
 			</form>-->
 			<button class="save-btn btn" onclick="colGen()"><i class="icon-arrows-cw"></i> GENERATE</button>
-			<button class="save-btn btn" onclick="saveFile()"><i
+			<button class="save-btn btn" onclick="windowController()"><i
 					class="icon-export"></i> EXPORT</button>
 			<button class="btn" onclick="removeColumn()"><i class="icon-minus"></i> REMOVE COLUMN</button>
 			<button class="add-color-btn btn" onclick="addNewColumn()"><i class="icon-plus-1"></i>ADD COLUMN</button>

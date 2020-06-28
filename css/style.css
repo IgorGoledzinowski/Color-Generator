@@ -5,6 +5,7 @@ html{
 body{
 	margin: 0 !important;
 	padding: 0 !important;
+	font-family: 'roboto',sans-serif;
 }
 .wraper{
 	display: flex;
@@ -55,6 +56,7 @@ body{
 .wraper .navbar .btn{
 	cursor: pointer;
 	text-align: center;
+	font-size: .65rem;
 	height: 40px;
 	width: auto;
 	margin: 10px 0;
@@ -95,7 +97,7 @@ body{
 }
 
 .show{
-	visibility: visible !important;
+	display: block !important;
 }
 
 .column .menu hr{	
@@ -180,7 +182,7 @@ body{
 	background-color: black;
 }
 .wraper .overlay{
-	visibility: hidden;
+	display: none;
 	position: fixed;
 	width: 100%;
 	height: 100%;
@@ -190,37 +192,94 @@ body{
 
 .wraper .overlay .window{
 	position: relative;
+	text-align: center;
 	top: 50%;
 	left: 50%;
 	width: 350px;
 	height: 400px;
 	z-index: 3;
-	background-color: #fff;
+	background-color: white;
+	border-radius: .2rem;
 	transform: translate(-50%, -50%);
 	overflow: hidden;
 }
 
-.window ol{
-	height: 100%;
-	list-style-type: none;
-	margin: 0;
+.window .close{
+	position: absolute;
+	text-shadow: none;
+	border: none;
+	color: rgba(255, 255, 255, .6);
+	top: 1rem;
+	font-size: 1.3rem;
+	font-weight: 400;
+	right: 1rem;
+	transition: .2s ease-in-out;
+}
+
+.window .close:hover{
+	color: rgba(255, 255, 255, .9);
+}
+
+.window .w-title{
+	margin:0;
+	padding: 2rem 0;
+	font-size: 2rem;
+	font-weight: 400;
+	background-color: rgb(24, 152, 202);
+}
+
+.window .w-title div, p{
+	margin:0;
 	padding: 0;
 }
 
-.window ol > li{
-	height: 30%;
-	text-align: center;
+.w-title  div{
+	color: rgba(255, 255, 255, 1);
+	font-weight: 500;
 }
 
+.w-title  p{
+	font-size: 1rem;
+	font-weight: 300;
+	margin: .25rem 0;
+	color: rgba(255, 255, 255, .7);
+}
+
+.window ol{
+	position: absolute;
+	width: 70%;
+	top: calc(50% + 64px);
+	left: 50%;
+	transform: translate(-50%,-50%);
+	list-style-type: none;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.window ol > li{
+	margin: 0;
+	display: inline;
+	text-align: center;
+}
 
 .window ol > li button{
 	height: 100%;
 	width: 90%;
-	background-color: #000;
+	background-color: rgb(243, 243, 243);
 	padding: .9rem;
 	text-align: center;
 	margin: 5px;
+	text-shadow: none;
+	color: rgb(22, 133, 177);
+	border: .2rem solid red;
+	transition: .2s ease-in-out;
 }
+
+.window ol > li button:hover{
+	color: #fff;
+	background-color: rgb(22, 133, 177);
+}
+
 @media only screen and (max-width: 1000px) {
 
 	.wraper .navbar{
@@ -258,4 +317,9 @@ body{
 		width: 100%;
 		height: 0 !important;
 	}
+  }
+
+ 
+  @media only screen and (max-width: 500px) {
+	/*max 500*/
   }
