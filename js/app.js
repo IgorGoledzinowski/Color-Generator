@@ -193,3 +193,13 @@ function exportFile(data, filename, type) {
 function showGeneratedCode(){
 
 }
+
+let removeBtn = document.getElementById('remove-btn');
+let addBtn = document.getElementById('add-btn');
+
+addEventListener("resize", function(){
+	console.log(window.innerWidth);
+	if(window.innerWidth < 700){
+	
+	}
+})
