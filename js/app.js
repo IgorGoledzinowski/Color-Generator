@@ -190,10 +190,6 @@ function exportFile(data, filename, type) {
 	}
 }
 
-function showGeneratedCode(){
-
-}
-
 let removeBtn = document.getElementById('remove-btn');
 let addBtn = document.getElementById('add-btn');
 

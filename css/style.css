@@ -300,7 +300,6 @@ body{
 	}
 	.wraper .navbar{
 		top: 0;
-		left: 0;
 		width: 5rem !important;
 		height: 100%;
 		width: 50px;
@@ -311,6 +310,7 @@ body{
 	}
 	.wraper .navbar .btn{
 		background-color: #000;
+		border: .1rem solid rgb(24, 24, 24) !important;
 		border-radius: 50%;	
 		height: 3rem;
 		width: 3rem;
@@ -347,6 +347,34 @@ body{
 	.hide{
 		width: 100%;
 		height: 0 !important;
+	}
+	.column .menu{
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		text-align: center;
+		width: 200px;
+		background-color: rgba(0, 0, 0, 0);
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	.column .menu hr{
+		width: 160px;
+		margin: 0rem auto .5rem auto;
+	}
+
+	.column .menu input{
+		font-size: 1.2rem;
+		padding: .7rem 0;
+		margin: 0;
+	}
+	.column .menu .line{
+		display: none;
+	}
+
+	.menu button i::before, i::after {
+		font-size: 1.3rem;
 	}
   }
 
