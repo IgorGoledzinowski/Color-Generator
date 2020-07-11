@@ -17,6 +17,7 @@ body{
 	left: 0;
 	background-color: #000;
 	overflow: hidden;
+	min-height: 600px;
 }
 .wraper button{
 	cursor: pointer;
@@ -299,45 +300,29 @@ body{
 		opacity: 1;
 	}
 	.wraper .navbar{
-		top: 0;
-		width: 5rem !important;
-		height: 100%;
+		position: absolute;
+		top: 50%;
+		right: 0 !important;
+		left: auto;
+		bottom: auto;
+		transform: translateY(-50%);
+		height: auto !important;
 		width: 50px;
-		background-color: transparent;
+		padding: 0 .3rem;
+		margin: 0 .5rem;
+		background-color: rgba(24, 24, 24,.3);
 		text-align: center;
-		transform: none;
-		border-radius:none !important;
+		border-radius: 2rem;
+		overflow: hidden;
 	}
 	.wraper .navbar .btn{
-		background-color: #000;
+		background-color: rgba(0, 0, 0, .9);
 		border: .1rem solid rgb(24, 24, 24) !important;
 		border-radius: 50%;	
 		height: 3rem;
 		width: 3rem;
 	}
-	.wraper .navbar .add-color-btn{
-		position: fixed;
-		bottom: 6.5rem;
-		right: 1rem;
-	}
-	.wraper .navbar .save-btn{
-		position: fixed;
-		bottom: 10.5rem;
-		right: 1rem;
-	}
 
-	.wraper .navbar .generate-btn{
-		position: fixed;
-		bottom: 14.5rem;
-		right: 1rem;
-	}
-
-	.wraper .navbar #remove-btn{
-		position: fixed;
-		border-radius: 50%;	
-		bottom: 2.5rem;
-		right: 1rem;
-	}
 	.navbar span{
 		display: none;
 	}
@@ -374,7 +359,11 @@ body{
 	}
 
 	.menu button i::before, i::after {
+		display: block;
 		font-size: 1.3rem;
+	}
+	.menu button{
+		background-color: red;
 	}
   }
 

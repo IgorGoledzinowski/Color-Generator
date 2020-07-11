@@ -4,32 +4,47 @@ let currentWidth = width[index];
 let tmp = index;
 const column = [1, 2, 3, 4, 5];
 const colorNumber = [1, 2, 3, 4, 5];
+let r, g, b;
 
 for (var i = 0; i <= column.length - 1; i++) {
 	column[i] = document.getElementById("col-" + (i + 1));
 	colorNumber[i] = document.getElementById("color-code" + (i + 1));
 }
-
-
 let colorArr = [];
 
-//Function generates random colors and assigns them to variable
+let color = {};
+
 (function colorsGenerator() {
 	for (var i = 0; i < column.length; i++) {
 		r = Math.floor(Math.random() * 256);
 		g = Math.floor(Math.random() * 256);
 		b = Math.floor(Math.random() * 256);
-		colorArr.push("rgb("+r+", "+g+", "+b+");");
-		if (column[i].querySelector('i.locked')) {
-
-		} else {
+		color = {
+			r: r,
+			g: g,
+			b: b
+		};
+		colorArr.push(color);
+		if (column[i].querySelector('i.locked') != true) {
 			column[i].style.backgroundColor = "rgb(" + r + ", " + g + ", " + b + ")";
 			colorNumber[i].value = column[i].style.backgroundColor;
 		}
 		colGen = colorsGenerator;
 	}
-	
 })();
+
+console.log(colorArr);
+
+
+function convertToHex(obj){
+	let result = "";
+	while(obj.r % 16 != 0){
+
+	}
+
+	return result; 
+}
+
 
 function addNewColumn() {
 	if (index != 1) {
