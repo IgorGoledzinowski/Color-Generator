@@ -32,8 +32,8 @@
 				<hr class="line">
 				<input type="text" id="color-code1">
 				<hr>
-				<button><i onclick="lock(this)" class="icon-lock-open-alt"></i></button>
-				<button onclick="swapColorNext(0)"><i class="icon-angle-circled-right"></i></button>
+				<button><i onclick="lock(this, 0)" class="icon-lock-open-alt"></i></button>
+				<button onclick="swapColor(0, 'next')"><i class="icon-angle-circled-right"></i></button>
 			</div>
 		</div>
 		<div class="column" id="col-2">
@@ -42,9 +42,9 @@
 				<hr class="line">
 				<input type="text" id="color-code2">
 				<hr>
-				<button onclick="swapColorPrev(1)"><i class="icon-angle-circled-left"></i></button>
-				<button><i onclick="lock(this)" class="icon-lock-open-alt"></i></button>
-				<button onclick="swapColorNext(1)"><i class="icon-angle-circled-right"></i></button>
+				<button onclick="swapColor(1, 'prev')"><i class="icon-angle-circled-left"></i></button>
+				<button><i onclick="lock(this, 1)" class="icon-lock-open-alt"></i></button>
+				<button onclick="swapColor(1, 'next')"><i class="icon-angle-circled-right"></i></button>
 			</div>
 		</div>
 		<div class="column" id="col-3">
@@ -53,9 +53,9 @@
 				<hr class="line"> 
 				<input type="text" id="color-code3">
 				<hr>
-				<button onclick="swapColorPrev(2)"><i class="icon-angle-circled-left"></i></button>
-				<button><i onclick="lock(this)" class="icon-lock-open-alt"></i></button>
-				<button onclick="swapColorNext(2)"><i class="icon-angle-circled-right"></i></button>
+				<button onclick="swapColor(2, 'prev')"><i class="icon-angle-circled-left"></i></button>
+				<button><i onclick="lock(this, 2)" class="icon-lock-open-alt"></i></button>
+				<button onclick="swapColor(2, 'next')"><i class="icon-angle-circled-right"></i></button>
 			</div>
 		</div>
 		<div class="column hide" id="col-4">
@@ -64,9 +64,9 @@
 				<hr class="line">
 				<input type="text" id="color-code4">
 				<hr>
-				<button onclick="swapColorPrev(3)"><i class="icon-angle-circled-left"></i></button>
-				<button><i onclick="lock(this)" class="icon-lock-open-alt"></i></button>
-				<button onclick="swapColorNext(3)"><i class="icon-angle-circled-right"></i></button>
+				<button onclick="swapColor(3)"><i class="icon-angle-circled-left"></i></button>
+				<button><i onclick="lock(this, 3)" class="icon-lock-open-alt"></i></button>
+				<button onclick="swapColor(3)"><i class="icon-angle-circled-right"></i></button>
 			</div>
 		</div>
 		<div class="column hide" id="col-5">
@@ -75,8 +75,8 @@
 				<hr>
 				<input type="text" id="color-code5">
 				<hr>
-				<button onclick="swapColorPrev(4)"><i class="icon-angle-circled-left"></i></button>
-				<button><i onclick="lock(this)" class="icon-lock-open-alt"></i></button>
+				<button onclick="swapColor(4)"><i class="icon-angle-circled-left"></i></button>
+				<button><i onclick="lock(this, 4)" class="icon-lock-open-alt"></i></button>
 			</div>
 		</div>
 		<div class="navbar">
