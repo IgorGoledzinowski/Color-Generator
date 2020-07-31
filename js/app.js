@@ -19,7 +19,7 @@ const randomColor = () => {
 	return random;
 };
 
-const refresh = (index) => {
+const refresh = index => {
 	column[index].style.backgroundColor = `rgb( ${colorContainer[index].rgb[0]}, ${colorContainer[index].rgb[1]}, ${colorContainer[index].rgb[2]})`;
 	colorNumber[index].value = column[index].style.backgroundColor;
 }
