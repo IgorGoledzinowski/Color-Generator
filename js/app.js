@@ -1,5 +1,5 @@
 const width = [20, 25, 33.333, 50, 100];
-let index = 3
+let index = 3;
 let currentWidth = width[index];
 let tmp = index;
 const column = [1, 2, 3, 4, 5];
@@ -22,6 +22,7 @@ const randomColor = () => {
 const refresh = index => {
 	column[index].style.backgroundColor = `rgb( ${colorContainer[index].rgb[0]}, ${colorContainer[index].rgb[1]}, ${colorContainer[index].rgb[2]})`;
 	colorNumber[index].value = column[index].style.backgroundColor;
+	//update lock icon
 }
 
 (colorGenerator = () => {
@@ -29,7 +30,6 @@ const refresh = index => {
 		r = randomColor();
 		g = randomColor();
 		b = randomColor();
-
 		if(colorContainer.length < 5 || colorContainer[i].isLocked === false){
 		colorContainer[i] = new Object({
 			name: "",
@@ -38,23 +38,20 @@ const refresh = index => {
 			isLocked: false
 			});
 		}
-
 		if (colorContainer[i].isLocked === false) {
 			refresh(i);
 		}
 	}
-	console.log(colorContainer);
 	colGen = colorGenerator;
 })();
 
 const lock = ( value , index ) => {
 	const lockIcon = ['icon-lock-open-alt', 'icon-lock', 'locked'];
-	let result;
-	//loop threw icon classes
 	for(let i=0; i< lockIcon.length; i++){
 		value.classList.toggle(lockIcon[i]);
 	}
-	value.classList.contains("icon-lock-open-alt") ?  result = false : result = true;
+	locked = value.classList.contains("icon-lock-open-alt");
+	locked ?  result = false : result = true;
 	colorContainer[index].isLocked = result;
 }
 
@@ -83,34 +80,76 @@ const removeColumn = () => {
 }
 
 const swapColor = ( index , dir ) => {
-	let temp;
-	if(dir === 'next'){
-		temp = colorContainer[index + 1];
-		colorContainer[index + 1] = colorContainer[index];
-		colorContainer[index] = temp;
-		refresh(index+1);
-	}else{
-		temp = colorContainer[index-1];
-		colorContainer[index-1] = colorContainer[index];
-		colorContainer[index] = temp;
-		refresh(index-1);
-	}
+	let temp, swap;
+
+	//next = [index + 1], prev = [index - 1]
+	temp = (dir === 'next' ? swap = (index + 1) : swap = (index - 1));
+	temp = colorContainer[swap];
+	colorContainer[swap] = colorContainer[index];
+	colorContainer[index] = temp;
+
+	//refresh both columns
+	refresh(swap);
 	refresh(index);
 }
 
-addEventListener("keyup", ( event ) => {
+
+addEventListener("keyup", event => {
+	event.target.value
+	isRGB;
+	 console.log(event.target.value);
+	 e
+});
+
+addEventListener("keyup", event => {
+	let regex = /\d+/g , matchAll, rgbValue;
 	if (event.keyCode === 13 || event.which === 13) {
 		for (let i = 0; i < column.length; i++) {
-			if (colorContainer[i].isLocked === true) {
-				colorNumber[i].value = column[i].style.backgroundColor;
-			} else {
+			if (colorContainer[i].isLocked !== true) {
+				rgbValue = colorNumber[i].value; 
+				matchAll = rgbValue.matchAll(regex); //create object 
+				matchAll = Array.from(matchAll); //convert object into array
+				colorContainer[i].rgb = [parseInt(matchAll[0]), parseInt(matchAll[1]), parseInt(matchAll[2])]; //updating colorContainer object				
 				column[i].style.backgroundColor = colorNumber[i].value;
+			}else{
+				colorNumber[i].value = column[i].style.backgroundColor;
 			}
 		}
 	}
 });
 
-const saveFileWindow = document.querySelector(".overlay");
+const toHexConverter = (colorObj, index) => {
+	let rgbInputValue = colorObj.parentElement.parentElement.querySelector(".color-input input"); //String
+	let reg = /\d+/g;
+	let matchAll, hex;
+
+	if(colorContainer[index].hex == "#"){
+		matchAll = rgbInputValue.value.matchAll(reg);
+		matchAll = Array.from(matchAll);
+		for(let i=0; i<matchAll.length; i++){
+			matchAll[i] = parseInt(matchAll[i]);
+			hex = matchAll[i].toString(16);
+			hex.length == 1 ? hex = `0${hex}` : hex = hex; // 0-9
+			colorContainer[index].hex += hex;
+		}
+	}
+	"rgb("+colorContainer[index].hex+")" === rgbInputValue ? console.log(true) : console.log(false);
+	console.log(colorContainer[index].rgb+" "+rgbInputValue.value);
+
+	if(colorObj.innerHTML === 'HEX') {
+		colorObj.innerHTML = 'RGB';
+		rgbInputValue.value = colorContainer[index].hex;
+	} else {
+		colorObj.innerHTML = 'HEX';
+		rgbInputValue.value = `RGB(${colorContainer[index].rgb[0]}, ${colorContainer[index].rgb[1]}, ${colorContainer[index].rgb[2]})`;
+	}
+	
+  }
+
+ const toRgbConverter = () => {
+
+ } 
+const saveFileWindow = document.querySelector('.overlay');
 
 const windowController = () => {
 	saveFileWindow.classList.toggle("show");
@@ -141,3 +180,7 @@ const exportFile = (data, filename, type) => {
 		}, 0);
 	}
 }
+
+document.querySelector('input').addEventListener("input", text => {
+	console.log(text+"halo");
+})

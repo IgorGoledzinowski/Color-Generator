@@ -28,55 +28,70 @@
 		</div>
 		<div class="column" id="col-1">
 			<div class="menu">
-				<input type="text" value="color1">
-				<hr class="line">
-				<input type="text" id="color-code1">
-				<hr>
-				<button><i onclick="lock(this, 0)" class="icon-lock-open-alt"></i></button>
-				<button onclick="swapColor(0, 'next')"><i class="icon-angle-circled-right"></i></button>
+				<div class="color-input">
+					<div class="tag-edit">EDIT</div>
+					<input type="text" id="color-code1" ><button class="color-input__btn"><i class="fas fa-check"></i></button>
+				</div>
+				<div class="btn-container">
+					<button class="lock-btn"><i onclick="lock(this, 0)" class="icon-lock-open-alt"></i></button>
+					<button class="next-btn" onclick="swapColor(0, 'next')"><i class="icon-angle-circled-right"></i></button>
+					<button class="hex" onclick="toHexConverter(this, 0)">HEX</button>
+				</div>
 			</div>
 		</div>
 		<div class="column" id="col-2">
 			<div class="menu">
-				<input type="text" value="color2">
-				<hr class="line">
-				<input type="text" id="color-code2">
-				<hr>
-				<button onclick="swapColor(1, 'prev')"><i class="icon-angle-circled-left"></i></button>
-				<button><i onclick="lock(this, 1)" class="icon-lock-open-alt"></i></button>
-				<button onclick="swapColor(1, 'next')"><i class="icon-angle-circled-right"></i></button>
+				<div class="btn-container">
+					<button class="lock-btn"><i onclick="lock(this, 1)" class="icon-lock-open-alt"></i></button>
+					<button class="next-btn" onclick="swapColor(1, 'next')"><i class="icon-angle-circled-right"></i></button>
+					<button class="next-btn" onclick="swapColor(1, 'prev')"><i class="icon-angle-circled-left"></i></button>
+					<button class="hex" onclick="toHexConverter(this, 1)">HEX</button>
+				</div>
+				<div class="color-input">
+					<div class="tag-edit">EDIT</div>
+					<input type="text" id="color-code2" >
+				</div>
 			</div>
 		</div>
 		<div class="column" id="col-3">
 			<div class="menu">
-				<input type="text" value="color3">
-				<hr class="line"> 
-				<input type="text" id="color-code3">
-				<hr>
-				<button onclick="swapColor(2, 'prev')"><i class="icon-angle-circled-left"></i></button>
-				<button><i onclick="lock(this, 2)" class="icon-lock-open-alt"></i></button>
-				<button onclick="swapColor(2, 'next')"><i class="icon-angle-circled-right"></i></button>
+				<div class="btn-container">
+					<button class="lock-btn"><i onclick="lock(this, 2)" class="icon-lock-open-alt"></i></button>
+					<button class="next-btn" onclick="swapColor(2, 'next')"><i class="icon-angle-circled-right"></i></button>
+					<button class="next-btn" onclick="swapColor(2, 'prev')"><i class="icon-angle-circled-left"></i></button>
+					<button class="hex" onclick="toHexConverter(this, 2)">HEX</button>
+				</div>
+				<div class="color-input">
+					<div class="tag-edit">EDIT</div>
+					<input type="text" id="color-code3" >
+				</div>
 			</div>
 		</div>
 		<div class="column hide" id="col-4">
 			<div class="menu">
-				<input type="text" value="color4">
-				<hr class="line">
-				<input type="text" id="color-code4">
-				<hr>
-				<button onclick="swapColor(3)"><i class="icon-angle-circled-left"></i></button>
-				<button><i onclick="lock(this, 3)" class="icon-lock-open-alt"></i></button>
-				<button onclick="swapColor(3)"><i class="icon-angle-circled-right"></i></button>
+				<div class="btn-container">
+					<button class="lock-btn"><i onclick="lock(this, 3)" class="icon-lock-open-alt"></i></button>
+					<button class="next-btn" onclick="swapColor(3, 'next')"><i class="icon-angle-circled-right"></i></button>
+					<button class="next-btn" onclick="swapColor(3, 'prev')"><i class="icon-angle-circled-left"></i></button>
+					<button onclick="toHexConverter(this, 3)">HEX</button>
+				</div>
+				<div class="color-input">
+					<div class="tag-edit">EDIT</div>
+					<input type="text" id="color-code4" >
+				</div>
 			</div>
 		</div>
 		<div class="column hide" id="col-5">
 			<div class="menu">
-				<input type="text" value="color5">
-				<hr>
-				<input type="text" id="color-code5">
-				<hr>
-				<button onclick="swapColor(4)"><i class="icon-angle-circled-left"></i></button>
-				<button><i onclick="lock(this, 4)" class="icon-lock-open-alt"></i></button>
+				<div class="btn-container">
+					<button class="lock-btn"><i onclick="lock(this, 4)" class="icon-lock-open-alt"></i></button>
+					<button class="next-btn" onclick="swapColor(4, 'prev')"><i class="icon-angle-circled-left"></i></button>
+					<button class="hex" onclick="toHexConverter(this, 0)">HEX</button>
+				</div>
+				<div class="color-input">
+					<div class="tag-edit">EDIT</div>
+					<input type="text" id="color-code5" >
+				</div>
 			</div>
 		</div>
 		<div class="navbar">
