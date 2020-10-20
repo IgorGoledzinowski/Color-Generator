@@ -1,13 +1,30 @@
-html{
-	margin: 0 !important;
-}
-
-body{
+body, html{
 	margin: 0 !important;
 	padding: 0 !important;
 	font-family: 'roboto',sans-serif;
 }
-.wraper{
+
+button{
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+	border-left: 1px solid rgba(255, 255, 255, .1);
+	color: rgba(255, 255, 255, 1);
+	transition: .1s ease-in-out;
+}
+button:hover{
+	color: rgba(255, 255, 255, .9);
+}
+button:focus{
+	outline: none;
+}
+button:first-child{
+	border:none;
+}
+
+/***********COLUMNS*************/
+
+.container{
 	display: flex;
 	flex-direction: row;
 	position: absolute;
@@ -20,28 +37,128 @@ body{
 	min-height: 600px;
 }
 
-.wraper button{
-	cursor: pointer;
-	background-color: transparent;
+.container__column{
+	position: relative;
+	margin: 0 !important;
+	padding: 0 !important;
+	background-color: lightgrey;
+	width: 100%!important;
+	height: 100%;
+	transition: .2s linear;
+	overflow: hidden;
+}
+
+.container__column .menu{
+	/*opacity: 0;*/
+	opacity: 0;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+	height: 150px;
+	width: 150px;
+	background-color: rgba(30, 30, 30, .6);
+	border-radius: 3px;
+	padding: 10px 5px;
+	transition: .2s ease;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.container__column:hover .menu{
+	opacity: 1;
+}
+
+.container__column .menu__input{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	font-size: .85rem;
+	font-weight: 300;
+	margin: 0;
+	padding: 1rem 0rem;
+	letter-spacing: .05rem;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, .7);
+	background-color: rgba(31, 31, 31,.8);
+	border:none;	
+}
+
+.menu__btns{
+	position: absolute;
+	top: 48px;
+	left: 0;
+	width: 100%;
+	height: 101px;
+	display: block;
+	background-color: rgba(41, 41, 41, .8);
+	box-sizing: border-box;
+}
+
+.menu__btns > button{
+	font-size: 1.1rem;
+	display: inline-block !important;
+	border:1px solid white !important; 
+}
+
+.menu__btns .menu__rh{
+	width: 80%;
+	height: 50.5px !important;
+	padding: 12.955px 0;
+	margin: 0 auto;
+	border-bottom: .2px solid rgb(61, 61, 61);
+	box-sizing: border-box;
+}
+
+.rgb, .hex{
+	font-size: .8rem !important;
+	color: rgba(255, 255, 255, .7);
+	background-color: rgb(65, 65, 65);
+	padding: .3rem;
+	margin: 0 !important;
+	font-weight: 300 !important;
 	border: none;
-	color: rgba(255, 255, 255, 1);
-	transition: .1s ease-in-out;
-}
-.wraper button:hover{
-	color: rgba(255, 255, 255, .9);
-}
-.wraper button:focus{
-	outline: none;
-}
-.wraper button:first-child{
-	border:none;
-}
-.wraper button{
-	border-left: 1px solid rgba(255, 255, 255, .1);;
 }
 
+.rgb:hover, .hex:hover{
+	color: white !important;
+	background-color: rgb(77, 121, 255) !important;
+}
 
-.wraper .navbar{
+.menu__nav{
+	position: absolute;
+	width: 100%;
+	height: 50.5px !important;
+	padding: 14.75px;
+	box-sizing: border-box;
+}
+
+.menu__btn {
+	padding: 0 .25rem !important;
+	border: none;
+}
+
+.menu__btn > i, .menu__btn > i::before, .menu__btn > i::after{
+	color: rgba(184, 184, 184, 0.692);
+	font-size: 1.1rem !important;
+}
+
+.active_color-type{
+	color: white !important;
+	background-color: rgb(58, 96, 207) !important;
+}
+
+.menu__icon::before, .menu__icon::after, .menu__icon{
+	color: rgba(255, 255, 255, .7);
+	font-size: 1.1rem !important;
+}
+
+.container .navbar{
 	position: fixed;
 	bottom: 60px;
 	text-align: right;
@@ -54,7 +171,7 @@ body{
 	background-color: rgba(0, 0, 0, .3);
 }
 
-.wraper .navbar .btn{
+.container .navbar .btn{
 	cursor: pointer;
 	text-align: center;
 	font-size: .65rem;
@@ -65,157 +182,25 @@ body{
 	color: rgba(255, 255, 255, .8);
 }
 
-.column{
-	position: relative;
-	margin: 0 !important;
-	padding: 0 !important;
-	background-color: lightgrey;
-	width: 33.333%;
-	height: 100%;
-	transition: .2s linear;
-	overflow: hidden;
-}
-.column .menu{
-	opacity: 0;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	text-align: center;
-	padding: 1rem .5rem;
-	transition: .2s ease;
-	overflow: hidden;
-}
-
-
-.column .color-input{
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	background-color: rgba(41, 41, 41,1) !important;
-	padding: 1.75rem 0rem 1.5rem 0rem!important;
-}
-
-.color-input__btn{
-	color: rgb(223, 223, 223)!important;
-	font-size: 1rem;
-	background-color: rgb(95, 95, 95) !important;
-	padding: .7rem;
-	margin: 0 !important;
-	border-radius: 0 5px 5px 0 !important;
-	transition: .2s ease-in-out;
-}
-
-.input__btn-active{
-	background-color: rgb(21, 112, 26) !important;
-}
-.tag-edit{
-	position: absolute;
-	top: 0.6rem;
-	left: 1rem;
-	font-size: .7rem;
-	font-weight: 300;
-	color: rgb(218, 218, 218);
-	cursor: default;
-}
-.color-name i{
-	position: absolute;
-	top: 1rem;
-	left: 1rem;
-}
-.btn-container{
-	position: absolute;
-	top:50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-}
-
-.column .next-btn{
-	display: block;
-	margin:4rem !important;
-}
-
-
-.next-btn > i::before, i::after{
-	font-size: 1.5rem;
-}
-
-.column .lock-btn{
-	display: block;
-	margin: 4rem !important;
-}
-
-.lock-btn > i::before, i::after{
-	font-size: 1.5rem;
-}
-
-.column .hex{
-	display: block;
-	font-weight: 600;
-	margin: 4rem !important;
-}
-
-
-.locked{
-	color: rgba(0, 0, 0, .5)!important;
-	transition: .2s ease-in-out;
-}
 
 .show{
 	display: block !important;
 }
 
-.column .menu input{
-	width: calc(90% - 3rem);
-	text-align: center;
-	font-family: 'Roboto', sans-serif;
-	font-size: .85rem;
-	font-weight: 400;
-	margin: 0px;
-	padding: .75rem 0px;
-	letter-spacing: .07rem;
-	text-transform: uppercase;
-	color: rgba(255, 255, 255, .8);
-	background-color: rgb(29, 29, 29);
-	border-radius: 5px 0 0 5px;
-	border:none;
-	
-}
-.column .menu input:first-child{
-	margin: 0;
-	padding: 0;
-	font-weight: 900;
-}
-
-.column .menu button{
-	border:none;
-	margin: 0px;
-	color: rgba(31, 31, 31, 0.3);
-	text-shadow: none;
-	transition: .2s ease;
-}
-.column .menu button:hover{
-	color: rgba(0, 0, 0, .5);
-}
-.column:hover .menu{
-	opacity: 1;
-}
 .light-font{
 	color: rgba(255, 255, 255, .5);
 }
-.column:hover input{
+.container__column:hover input{
 	transition: .5s ease;
 }
-.column input:focus{
+.container__column input:focus{
 	outline: none;
 }
 
 .hide{
 	width: 0px;
 }
-.wraper .column .close-btn{
+.container .container__column .close-btn{
 	position: relative;
 	height: 30px;
 	width: 30px;
@@ -226,17 +211,13 @@ body{
 
 }
 
-.column:nth-child(odd){
-	background-color: grey;
-}
+
 
 .hide{
 	width: 0px !important;
+	
 }
 
-.col-4{
-	width: 25% !important;
-}
 .settings-menu{
 	display: none;
 	position:fixed;
@@ -245,7 +226,7 @@ body{
 	width: 100%;
 	background-color: black;
 }
-.wraper .overlay{
+.container .container__overlay{
 	display: none;
 	position: fixed;
 	width: 100%;
@@ -254,7 +235,7 @@ body{
 	z-index: 3;
 }
 
-.wraper .overlay .window{
+.container .container__overlay .window{
 	position: relative;
 	text-align: center;
 	top: 50%;
@@ -346,23 +327,23 @@ body{
 
 @media only screen and (max-width: 1000px) {
 
-	.wraper .navbar{
+	.container .navbar{
 		text-align: center;
 	}
-	.column .menu{
+	.container__column .menu{
 		opacity: 1;
 	}
 	
   }
 
 @media only screen and (max-width: 760px) {
-	.wraper{
+	.container{
 		flex-direction: column;
 	}
-	.column input{
+	.container__column input{
 		opacity: 1;
 	}
-	.wraper .navbar{
+	.container .navbar{
 		position: absolute;
 		top: 50%;
 		right: 0 !important;
@@ -378,7 +359,7 @@ body{
 		border-radius: 2rem;
 		overflow: hidden;
 	}
-	.wraper .navbar .btn{
+	.container .navbar .btn{
 		background-color: rgba(0, 0, 0, .9);
 		border: .1rem solid rgb(24, 24, 24) !important;
 		border-radius: 50%;	
@@ -389,14 +370,14 @@ body{
 	.navbar span{
 		display: none;
 	}
-	.column{
+	.container__column{
 		width: 100% !important;
 	}
 	.hide{
 		width: 100%;
 		height: 0 !important;
 	}
-	.column .menu{
+	.container__column .menu{
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%,-50%);
@@ -407,17 +388,17 @@ body{
 		box-shadow: none;
 	}
 
-	.column .menu hr{
+	.container__column .menu hr{
 		width: 160px;
 		margin: 0rem auto .5rem auto;
 	}
 
-	.column .menu input{
+	.container__column .menu input{
 		font-size: 1.2rem;
 		padding: .7rem 0;
 		margin: 0;
 	}
-	.column .menu .line{
+	.container__column .menu .line{
 		display: none;
 	}
 

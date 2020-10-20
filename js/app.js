@@ -5,6 +5,7 @@ let tmp = index;
 const column = [1, 2, 3, 4, 5];
 const colorNumber = [1, 2, 3, 4, 5];
 let r, g, b;
+const colorType = document.getElementsByClassName('menu__input');
 
 for (let i = 0; i <= column.length - 1; i++) {
 	column[i] = document.getElementById("col-" + (i + 1));
@@ -14,16 +15,14 @@ for (let i = 0; i <= column.length - 1; i++) {
 //array of objects
 let colorContainer = [];
 
-const randomColor = () => {
-	const random = Math.floor(Math.random() * 256);
-	return random;
-};
-
 const refresh = index => {
 	column[index].style.backgroundColor = `rgb( ${colorContainer[index].rgb[0]}, ${colorContainer[index].rgb[1]}, ${colorContainer[index].rgb[2]})`;
 	colorNumber[index].value = column[index].style.backgroundColor;
-	//update lock icon
 }
+
+const randomColor = () => {
+	return Math.floor(Math.random() * 256);
+};
 
 (colorGenerator = () => {
 	for (let i = 0; i < column.length; i++) {
@@ -32,10 +31,10 @@ const refresh = index => {
 		b = randomColor();
 		if(colorContainer.length < 5 || colorContainer[i].isLocked === false){
 		colorContainer[i] = new Object({
-			name: "",
 			rgb:[r,g,b],
 			hex: `#`,
-			isLocked: false
+			isLocked: false,
+			colorSystem: ''
 			});
 		}
 		if (colorContainer[i].isLocked === false) {
@@ -81,7 +80,6 @@ const removeColumn = () => {
 
 const swapColor = ( index , dir ) => {
 	let temp, swap;
-
 	//next = [index + 1], prev = [index - 1]
 	temp = (dir === 'next' ? swap = (index + 1) : swap = (index - 1));
 	temp = colorContainer[swap];
@@ -119,7 +117,9 @@ addEventListener("keyup", event => {
 });
 
 const toHexConverter = (colorObj, index) => {
-	let rgbInputValue = colorObj.parentElement.parentElement.querySelector(".color-input input"); //String
+	const rgbInputValue = colorObj.parentElement.parentElement.parentElement.querySelector(".menu__input"); //String
+	const hexx = colorObj.parentElement.querySelector(".menu__rh .hex");
+	const rgb = colorObj.parentElement.querySelector(".menu__rh .rgb");
 	let reg = /\d+/g;
 	let matchAll, hex;
 
@@ -133,15 +133,20 @@ const toHexConverter = (colorObj, index) => {
 			colorContainer[index].hex += hex;
 		}
 	}
+	
 	"rgb("+colorContainer[index].hex+")" === rgbInputValue ? console.log(true) : console.log(false);
 	console.log(colorContainer[index].rgb+" "+rgbInputValue.value);
 
 	if(colorObj.innerHTML === 'HEX') {
-		colorObj.innerHTML = 'RGB';
+		rgb.classList.contains('active_color-type') ? rgb.classList.remove('active_color-type') : null;
 		rgbInputValue.value = colorContainer[index].hex;
+		hexx.classList.add('active_color-type');
+		colorContainer[index].colorSystem = 'hex';
 	} else {
-		colorObj.innerHTML = 'HEX';
+		hexx.classList.contains('active_color-type') ? hexx.classList.remove('active_color-type') : null;
 		rgbInputValue.value = `RGB(${colorContainer[index].rgb[0]}, ${colorContainer[index].rgb[1]}, ${colorContainer[index].rgb[2]})`;
+		rgb.classList.add('active_color-type');
+		colorContainer[index].colorSystem = 'rgb';
 	}
 	
   }
