@@ -1,6 +1,6 @@
 <a href="https://igorgoledzinowski.github.io/Color-Generator/index.html">LIVE</a>
 
-<img src="https://raw.githubusercontent.com/IgorGoledzinowski/Color-Generator/master/screenshots/screenshot1.png">
+<img src="https://raw.githubusercontent.com/IgorGoledzinowski/color-generator/master/screenshots/screenshot1.png">
 
 # Color Generator
 
