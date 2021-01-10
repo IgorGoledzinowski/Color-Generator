@@ -1,4 +1,4 @@
-<a href="https://igorgoledzinowski.github.io/Color-Generator/index.html">LIVE</a>
+<a href="https://igorgoledzinowski.github.io/color-generator/index.html">LIVE</a>
 
 <img src="https://raw.githubusercontent.com/IgorGoledzinowski/color-generator/master/screenshots/screenshot1.png">
 
