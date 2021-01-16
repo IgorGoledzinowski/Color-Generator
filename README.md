@@ -5,5 +5,5 @@
 ## Description
 Pure Vanilla.js based app generating up to 5 random colors. Create your own unique color palettes.
 
-##TODO
+## TODO
 Export button handler
